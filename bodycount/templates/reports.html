@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title>Body Count</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="http://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" rel="stylesheet" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+</head>
+<body>
+  <style>
+    .spacer
+    {
+      margin-top:5%;
+    }
+    .mg-btm10
+    {
+      margin-bottom:10px;
+    }
+    .nobord
+    {
+      border:none;
+    }
+  </style>
+  <div class="spacer">
+    </div>
+  <center><h3>Body count</h3></center>
+  <center><h6>Graphs</h6></center>
+  <div class="spacer">
+    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+      </div>
+      <div class="col-sm-1">
+        <a href="{%url 'index' %}">Upload</a>
+      </div>
+      <div class="col-sm-1">
+        <a href="{%url 'reports' %}">Reports</a>
+      </div>
+    </div>
+  </div>
+  <div class="spacer">
+    </div>
+  <div class="container col-md-7" >
+     {{ div | safe }}
+     {{ script | safe }}
+  </div>
+
+
+
+<div class="spacer">
+  </div>
+  {% if uploaded_file_url %}
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4">
+          <h2>Total number of people</h2>
+          <h5>{{bodycount.data.total_person}}</h5>
+        </div>
+      </div>
+  </div>
+
+
+  {% endif %}
+</body>
+</html>
